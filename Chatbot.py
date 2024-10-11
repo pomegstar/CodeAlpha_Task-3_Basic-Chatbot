@@ -14,9 +14,10 @@ lemmatizer = WordNetLemmatizer()
 # Define some sample responses
 responses = {
     "greeting": ["Hello! How can I help you today?", "Hi there! What can I do for you?", "Greetings! How can I assist you?"],
+    "help": ["I'm sorry, I don't understand.", "I'm not sure I can help with that.", "Sure, can you provide more information?"],
     "goodbye": ["Goodbye! Have a great day!", "See you later!", "Take care!"],
     "thanks": ["You're welcome!", "No problem!", "Glad to help!"],
-    "default": ["I'm not sure I understand. Can you please rephrase?", "Could you elaborate on that?", "I didn't catch that. Can you repeat?"]
+    "default": ["I'm not sure, But I understand. Can you please rephrase?", "Could you elaborate on that?", "I didn't catch that. Can you repeat?"]
 }
 
 # Function to process user input
@@ -30,6 +31,8 @@ def preprocess_input(user_input):
 def get_intent(user_input):
     if "hello" in user_input or "hi" in user_input:
         return "greeting"
+    elif "help" in user_input:
+        return "help"
     elif "bye" in user_input or "goodbye" in user_input:
         return "goodbye"
     elif "thank" in user_input:
